@@ -63,7 +63,23 @@ In `data/videos.json`, update the categories array:
 }
 ```
 
-### 3. Deploy to GitHub Pages
+### 3. Run Locally
+
+To test your website locally before deploying:
+
+**Using Python:**
+```bash
+python3 -m http.server 8000
+```
+
+Then open your browser and go to: `http://localhost:8000`
+
+**Alternative - Using Node.js (if you have it installed):**
+```bash
+npx http-server -p 8000
+```
+
+### 4. Deploy to GitHub Pages
 
 1. Push your code to a GitHub repository
 2. Go to repository Settings → Pages

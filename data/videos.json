@@ -23,7 +23,7 @@
       "title": "Sample Video 1",
       "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "channelUrl": "https://www.youtube.com/channel/UCexample1",
-      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "thumbnail": "./images/video1.png",
       "category": "music"
     },
     {
@@ -31,7 +31,7 @@
       "title": "Sample Video 2",
       "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "channelUrl": "https://www.youtube.com/channel/UCexample2",
-      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "thumbnail": "./images/video2.jpg",
       "category": "tutorial"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Sample Video 3",
       "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "channelUrl": "https://www.youtube.com/channel/UCexample3",
-      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "thumbnail": "./images/video3.jpg",
       "category": "entertainment"
     }
   ]
