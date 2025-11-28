@@ -1,0 +1,47 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Videos"
+    },
+    {
+      "id": "music",
+      "name": "Music"
+    },
+    {
+      "id": "tutorial",
+      "name": "Tutorials"
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Sample Video 1",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "channelUrl": "https://www.youtube.com/channel/UCexample1",
+      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "category": "music"
+    },
+    {
+      "id": 2,
+      "title": "Sample Video 2",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "channelUrl": "https://www.youtube.com/channel/UCexample2",
+      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "category": "tutorial"
+    },
+    {
+      "id": 3,
+      "title": "Sample Video 3",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "channelUrl": "https://www.youtube.com/channel/UCexample3",
+      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "category": "entertainment"
+    }
+  ]
+}
+
