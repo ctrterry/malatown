@@ -6,15 +6,15 @@
     },
     {
       "id": "music",
-      "name": "Music"
+      "name": "Music Test"
     },
     {
       "id": "tutorial",
-      "name": "Tutorials"
+      "name": "Tutorials Test"
     },
     {
       "id": "entertainment",
-      "name": "Entertainment"
+      "name": "Entertainment Test"
     }
   ],
   "videos": [
