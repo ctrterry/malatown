@@ -15,6 +15,10 @@
     {
       "id": "entertainment",
       "name": "Entertainment Test"
+    },
+    {
+      "id": "documents",
+      "name": "Documents"
     }
   ],
   "videos": [
@@ -41,6 +45,31 @@
       "channelUrl": "https://www.youtube.com/channel/UCexample3",
       "thumbnail": "./images/video3.jpg",
       "category": "entertainment"
+    },
+
+    {
+      "id": 4,
+      "title": "Sample Video 3",
+      "youtubeUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "channelUrl": "https://www.youtube.com/channel/UCexample3",
+      "thumbnail": "./images/video3.jpg",
+      "category": "entertainment"
+    },
+
+    {
+      "id": 5,
+      "title": "Sample Video 5",
+      "youtubeUrl": "https://www.youtube.com/watch?v=8OAQ6RuYFGE&list=RD8OAQ6RuYFGE&start_radio=1",
+      "channelUrl": "https://www.youtube.com/channel/UCexample3",
+      "thumbnail": "./images/video3.jpg",
+      "category": "entertainment"
+    },
+    {
+      "id": 6,
+      "title": "Sample Document 1",
+      "pdfUrl": "./documents/sample-document.pdf",
+      "thumbnail": "./images/document1.png",
+      "category": "documents"
     }
   ]
 }
