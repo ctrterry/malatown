@@ -86,16 +86,121 @@ class VideoCard {
         card.appendChild(thumbnail);
         card.appendChild(info);
 
-        // Add click event - open YouTube for videos, PDF for documents
+        // Add click event - show embedded player for videos, open new tab for PDFs
         card.addEventListener('click', () => {
             if (isPDF) {
+                // For documents, keep behavior as open in a new tab
                 window.open(video.pdfUrl, '_blank', 'noopener,noreferrer');
             } else {
-                window.open(video.youtubeUrl, '_blank', 'noopener,noreferrer');
+                // For videos, open an embedded player modal
+                this.openVideoModal(video);
             }
         });
 
         return card;
+    }
+
+    /**
+     * Ensure the video modal elements exist in the DOM
+     */
+    static ensureVideoModal() {
+        let overlay = document.querySelector('.video-modal-overlay');
+        if (overlay) return overlay;
+
+        overlay = document.createElement('div');
+        overlay.className = 'video-modal-overlay';
+
+        const modal = document.createElement('div');
+        modal.className = 'video-modal';
+
+        const header = document.createElement('div');
+        header.className = 'video-modal-header';
+
+        const title = document.createElement('h2');
+        title.className = 'video-modal-title';
+
+        const closeButton = document.createElement('button');
+        closeButton.className = 'video-modal-close';
+        closeButton.type = 'button';
+        closeButton.innerHTML = '&times;';
+
+        const body = document.createElement('div');
+        body.className = 'video-modal-body';
+
+        const iframeWrapper = document.createElement('div');
+        iframeWrapper.className = 'video-modal-iframe-wrapper';
+
+        const iframe = document.createElement('iframe');
+        iframe.className = 'video-modal-iframe';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+
+        iframeWrapper.appendChild(iframe);
+        body.appendChild(iframeWrapper);
+        header.appendChild(title);
+        header.appendChild(closeButton);
+        modal.appendChild(header);
+        modal.appendChild(body);
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+
+        // Close interactions
+        closeButton.addEventListener('click', () => this.closeVideoModal());
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                this.closeVideoModal();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                this.closeVideoModal();
+            }
+        });
+
+        return overlay;
+    }
+
+    /**
+     * Open the video modal with the given video
+     */
+    static openVideoModal(video) {
+        const overlay = this.ensureVideoModal();
+        const iframe = overlay.querySelector('.video-modal-iframe');
+        const titleEl = overlay.querySelector('.video-modal-title');
+
+        // Extract YouTube video ID and construct embed URL
+        const videoId = this.extractVideoId(video.youtubeUrl);
+        if (!videoId) {
+            // Fallback: if we can't get an ID, open in a new tab
+            window.open(video.youtubeUrl, '_blank', 'noopener,noreferrer');
+            return;
+        }
+
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.src = embedUrl;
+        titleEl.textContent = video.title || 'Video';
+
+        overlay.classList.add('is-visible');
+        document.body.classList.add('video-modal-open');
+    }
+
+    /**
+     * Close the video modal and stop playback
+     */
+    static closeVideoModal() {
+        const overlay = document.querySelector('.video-modal-overlay');
+        if (!overlay) return;
+
+        const iframe = overlay.querySelector('.video-modal-iframe');
+        if (iframe) {
+            // Reset src to stop the video
+            iframe.src = '';
+        }
+
+        overlay.classList.remove('is-visible');
+        document.body.classList.remove('video-modal-open');
     }
 
     /**
